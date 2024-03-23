@@ -17,10 +17,11 @@ import com.ou_solutions.employeetesting.repository.DepartmentRepository;
 import com.ou_solutions.employeetesting.repository.EmployeeRepository;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 
 @Service
-@Slf4j
+
 @RequiredArgsConstructor
 public class EmployeeService {
 	
@@ -182,13 +183,13 @@ public class EmployeeService {
 
 	public Employee changePassword(String email,String currentPassword, String newPassword) throws Exception {
 		
-		log.info("Email : {} , CurrentPassword : {} , newPassword : {}",email,currentPassword,newPassword );
+		//log.info("Email : {} , CurrentPassword : {} , newPassword : {}",email,currentPassword,newPassword );
 		
 		if(isEmployeeExists(email,currentPassword))
 		{
 			Employee emp = getEmployeeByEmailAndPassword(email,currentPassword);
 			
-			log.info("EMployee : {}",emp );
+			//log.info("EMployee : {}",emp );
 			
 			if(emp != null)
 			{
